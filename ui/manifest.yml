@@ -12,7 +12,7 @@ applications:
             "forwardAuthToken": true,
             "name": "trp-mig-srv",
             "timeout": 1800000,
-            "url": "https://gcl0139.wdf.sap.corp:51283/",
+            "url": "https://<host>:<port>/",
             "strictSSL": false
             }
           ]  
