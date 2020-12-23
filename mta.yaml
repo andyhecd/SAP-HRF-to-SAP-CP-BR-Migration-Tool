@@ -1,0 +1,69 @@
+ID: trp-migr-tool-dev
+_schema-version: "3.1"
+description: Tool to convert HRF Rules to SAP CP Business Rules
+version: 1.0.0
+modules:
+  - name: trp-migr-tool-db
+    type: hdb
+    path: db
+    build-parameters:
+      ignore: 
+        - node_modules
+        - csv
+        - src/gen/csv
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+      no-start: true 
+    requires:
+      - name: trp-migr-tool-db-db-hdi-container
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+  - name: trp-migr-tool-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+    requires:
+      - name: trp4_migr_tool_uaa
+      - name: trp-migr-tool-db-db-hdi-container
+      - name: SAP_TRP_HRF_MIGR_PARAMS
+    provides:
+      - name: trp-mig-api
+        properties:
+          url: '${default-url}'
+  - name: trp-migr-tool-ui
+    type: html5
+    path: ui
+    requires:
+      - name: trp4_migr_tool_uaa
+      - name: trp-mig-api
+        group: destinations
+        properties: 
+          forwardAuthToken: true
+          name:  trp-mig-srv
+          url: '~{url}'
+          timeout: 1800000
+resources:
+  - name: SAP_TRP_HRF_MIGR_PARAMS
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: SAP_TRP_HRF_MIGR_PARAMS
+  - name: trp-migr-tool-db-db-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}
+    parameters:
+      service-tags:
+        - trp4_migr_tool_db
+      service-name: TRP_DB_MIGR_TOOL_DEV
+      config:
+        schema: SAP_TRP_DB_MIGR_TOOL_DEV 
+  - name: trp4_migr_tool_uaa
+    type: com.sap.xs.uaa
+    parameters:
+      service-name: trp4_migr_tool_uaa
+      path: ./xs-security.json
+      service-plan: space
+      service: xsuaa

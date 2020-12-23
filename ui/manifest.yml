@@ -1,0 +1,18 @@
+---
+applications:
+  - name: trp-migr-tool-ui
+    instances: 1
+    services:
+      - trp4_migr_tool_uaa
+    memory: 512M
+    env:
+      destinations: >
+         [
+           {
+            "forwardAuthToken": true,
+            "name": "trp-mig-srv",
+            "timeout": 1800000,
+            "url": "https://gcl0139.wdf.sap.corp:51283/",
+            "strictSSL": false
+            }
+          ]  

@@ -1,0 +1,9 @@
+---
+applications:
+  - name: trp-migr-tool-srv
+    instances: 1
+    services:
+      - trp4_migr_tool_uaa
+      - TRP_DB_MIGR_TOOL_DEV
+      - SAP_TRP_HRF_MIGR_PARAMS
+    memory: 256M

@@ -1,0 +1,161 @@
+<mvc:View controllerName="com.trp.ui.migration.ui.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+
+xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+
+	<Shell  appWidthLimited="false" id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" class="sapUiSizeCompact">
+
+			<content>
+			<f:SimpleForm id="SimpleFormChange354wideDual"
+			class="sapUiSizeCompact"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="2"
+			labelSpanL="2"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="1"
+			emptySpanL="1"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="1"
+			>
+			<f:title>
+				<core:Title text="{i18n>HEADING}" level="H4" />
+			</f:title>
+			<f:content>
+		
+				<Label text="{i18n>PROJECT_NAME1}" labelFor="input">
+			
+				</Label>
+					<Input
+						id="input"
+						showValueHelp="true"
+						valueHelpOnly="true"
+						valueHelpRequest="onValueHelpRequested"
+						suggestionItems="{
+							path: 'mainModel>/ProjectList',
+							sorter: { path: 'Name' }
+						}"
+					>
+						<core:Item key="{}" text="{} ({})" />
+						<layoutData>
+							<layout:GridData span="XL2 L4 M6 S12" />
+						</layoutData>
+					</Input>
+					
+					<Button type="Accept" class="sapUiTinyMarginEnd" enabled="{mainModel>/isProject}" icon="sap-icon://activity-2"  text="{i18n>ACTIVATE_PROJECT}" tooltip="{i18n>ACTIVATE_PROJECT}" press="onActivateProject">
+						<layoutData>
+							<layout:GridData span="XL2 L2 M4 S12" />
+					</layoutData>
+					</Button>
+					<Button  text="{i18n>MIGRATION_CP_BR_PROJECT}"  enabled="{mainModel>/isProject}" press="onMigrateSelectedProject">
+					<layoutData>
+							<layout:GridData span="XL2 L2 M4 S12" />
+					</layoutData>
+					</Button>
+				
+				<Label text="{i18n>RULE_SERVICE_ANNOTATION}" >
+			
+				</Label>
+				<ComboBox
+				items="{
+					path: 'mainModel>/Annotations',
+					sorter: { path: 'name' }
+				}"
+				change="onSelectionAnnotation">
+				<core:Item key="{mainModel>key}" text="{mainModel>name}" />
+				<layoutData>
+							<layout:GridData span="XL2 L4 M6 S12" />
+					</layoutData>
+			</ComboBox>
+				
+		
+			</f:content>
+		</f:SimpleForm>
+			
+		<table:Table
+				id="table"
+				class="sapUiSizeCompact"
+				selectionMode="MultiToggle"
+				rows="{mainModel>/rulesList}"
+				visibleRowCount="10"
+				ariaLabelledBy="title">
+				<table:extension>
+					<OverflowToolbar>
+						<Title id="title" text="{i18n>MIGR_TABLE_TITLE}"/>
+						<!--<ToolbarSpacer/>-->
+						<!--<SearchField-->
+						<!--	placeholder="Filter"-->
+						<!--	value="{ui>/filterValue}"-->
+						<!--	search="handleTxtFilter"-->
+						<!--	width="15rem"/>-->
+					</OverflowToolbar>
+				
+				</table:extension>
+				<table:columns>
+					<table:Column  sortProperty="NAME"  filterProperty="NAME">
+						<Label text="{i18n>RULE_NAME}" />
+						<table:template>
+
+							<Text text="{mainModel>NAME}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column sortProperty="PACKAGE" 	filterProperty="PACKAGE">
+						<Label text="{i18n>RULE_PACKAGE}" />
+						<table:template>
+							<Text text="{mainModel>PACKAGE}" wrapping="false" />
+
+						</table:template>
+					</table:Column>
+					<table:Column >
+						<Label text="{i18n>RULE_ID}"  sortProperty="ID"  filterProperty="ID"/>
+						<table:template>
+
+							<Text text="{mainModel>ID}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<!-- <table:Column width="9rem">
+						<Label text="{i18n>RULE_TEMPLATE}" />
+						<table:template>
+							<Text text="{}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="9rem">
+						<Label text="{i18n>DESCRIPTION}" />
+						<table:template>
+							<Text text="{}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="9rem">
+						<Label text="{i18n>STATUS}" />
+						<table:template>
+							<Text text="{}" wrapping="false" />
+						</table:template>
+					</table:Column> -->
+				</table:columns>
+				<!--<footer>-->
+				<!--	<m:OverflowToolbar id="infobar"></m:OverflowToolbar>-->
+				<!--</footer>-->
+			</table:Table>
+					</content>
+						<footer>
+			<OverflowToolbar class="sapUiSizeCompact">
+				<content>
+					<ToolbarSpacer />
+					<Button type="Emphasized" text="{i18n>START_MIGRATION}" enabled="{mainModel>/isMigrate}" press="onMigrateProject"/>
+					<Button type="Emphasized" text="{i18n>MONITORING}" press="onMonitor"/>
+
+				</content>
+			</OverflowToolbar>
+		</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

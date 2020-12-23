@@ -1,0 +1,41 @@
+{
+  "name": "trp-migr-tool-dev",
+  "version": "1.0.0",
+  "description": "Tool to convert HRF Rules to SAP CP Business Rules",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@sap/cds": "^4.4",
+    "@sap/hana-client": "2.6.54",
+    "express": "4.17.1",
+    "@sap/cds-dk": "^3.3"
+  },
+  "devDependencies": {
+    "mbt": "1.0.15"
+  },
+  "engines": {
+    "node": "^10 || ^12"
+  },
+  "scripts": {
+    "build-MTA": "npm run build && mbt build -p xsa",
+    "build": "node node_modules/@sap/cds/bin/cds.js build"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana",
+        "model": [
+          "db",
+          "srv"
+        ]
+      }
+    },
+    "odata": {
+      "version": "v4"
+    }
+  },
+  "files": [
+    "db",
+    "srv"
+  ]
+}

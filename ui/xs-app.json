@@ -1,0 +1,47 @@
+{
+    "welcomeFile": "webapp/index.html",
+    "authenticationMethod": "route",
+    "sessionTimeout": 240,
+    "logout": {
+        "logoutEndpoint": "/do/logout"
+    },
+    "routes": [{
+            "source": "/sap/tm/trp/services/cpbrprojects",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/services/cpbrprojects"
+        },
+        {
+            "source": "/sap/tm/trp/services/hrfrules",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/services/hrfrules"
+        },
+        {
+            "source": "/sap/tm/trp/services/migrateProject",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/services/migrateProject",
+            "csrfProtection": false
+        },
+        {
+            "source": "/sap/tm/trp/service/odata/ExecutionLog",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/service/odata/ExecutionLog"
+        },
+        {
+            "source": "/sap/tm/trp/services/hrftocpbr/convert",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/services/hrftocpbr/convert",
+            "csrfProtection": false
+        },
+        {
+            "source": "/sap/tm/trp/services/activateProject",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/services/activateProject",
+            "csrfProtection": false
+        },
+        {
+            "source": "/sap/hana/xs/formLogin/token.xsjs",
+            "destination": "trp-mig-srv",
+            "target": "/sap/tm/trp/service/token"
+        }
+    ]
+}
