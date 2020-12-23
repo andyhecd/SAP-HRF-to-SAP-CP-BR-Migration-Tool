@@ -1,0 +1,35 @@
+scripts
+
+# CAP trp4_xsa_sync_register
+_out
+*.db
+connection.properties
+default-*.json
+gen/
+node_modules/
+target/
+
+# Web IDE, App Studio
+.che/
+.gen/
+.vscode/
+
+# MTA
+*_mta_build_tmp
+*.mtar
+mta_archives/
+
+# Other
+.DS_Store
+*.orig
+*.log
+
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+# .vscode
+# .idea
+package-lock.json
+default-env.json
+.idea
