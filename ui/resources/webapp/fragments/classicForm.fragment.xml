@@ -1,0 +1,43 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+    <Dialog draggable="true"  title ="HANA XSC"  contentWidth="40%" class="sapUiSizeCompact">
+         <content>
+	<!-- <VBox class="sapUiSmallMargin"> -->
+		<f:SimpleForm 
+		class="sapUiSizeCompact"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="1"
+			labelSpanL="4"
+			labelSpanM="3"
+			labelSpanS="6"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false"  >
+			<f:content>
+				<Label text="{i18n>PACKAGE}" />
+				<Input value="{mainModel>/xsa/package}" />
+				
+                <Label text="{i18n>SCHEMA}" />
+				<Input value="{mainModel>/xsa/schema}">
+				</Input>
+			</f:content>
+		</f:SimpleForm>
+	<!-- </VBox> -->
+    </content>
+    	<buttons>
+			<Button type="Emphasized" text="{i18n>OK}" press="onDoneClassic" enabled="{= ${popup>/selected} > 0}" />
+			<Button type="Emphasized" text="{i18n>CANCEL}" press="onCancelClassic" />
+		</buttons>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+
+    <Dialog draggable="true"  title ="HANA Advanced"  contentWidth="45%" class="sapUiSizeCompact">
+   
+         <content>
+	<!-- <VBox class="sapUiSmallMargin"> -->
+		<f:SimpleForm 
+		class="sapUiSizeCompact"
+
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="1"
+			labelSpanL="2"
+			labelSpanM="3"
+			labelSpanS="6"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="{i18n>SOURCE_NAMESPACE}" />
+				<Input value="{mainModel>/advanced/sourceName}" />
+				
+                <Label text="{i18n>SOURCE_CONTAINER}" />
+				<Input value="{mainModel>/advanced/sourceContainer}"/>
+
+                <Label text="{i18n>TARGET_NAMESPACE}" />
+				<Input value="{mainModel>/advanced/targetName}"/>
+
+                <Label text="{i18n>TARGET_CONTAINER}" />
+				<Input value="{mainModel>/advanced/targetContainer}"/>
+
+                <Label text="{i18n>TARGET_SYNONYM}" />
+				<Input value="{mainModel>/advanced/targetSynonym}" editable="false"/>
+				
+			</f:content>
+		</f:SimpleForm>
+	<!-- </VBox> -->
+    </content>
+    	<buttons>
+			<Button type="Emphasized" text="{i18n>OK}" press="onDoneAdvanced"  />
+			<Button type="Emphasized" text="{i18n>CANCEL}" press="onCancelAdvanced" />
+		</buttons>
+    </Dialog>
+</core:FragmentDefinition>

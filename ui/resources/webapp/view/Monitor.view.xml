@@ -1,0 +1,109 @@
+<View controllerName="com.trp.ui.migration.ui.controller.Monitor" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Page title="{i18n>MONITOR_PAGE}" showNavButton="true" navButtonPress="navBack" class="sapUiSizeCompact">
+		<content>
+			<!--
+			<OverflowToolbar>
+			<Button icon="sap-icon://nav-back" text="{i18n>Back}"/>
+			<ToolbarSpacer/>
+			</OverflowToolbar>
+			-->
+			<table:Table id="table" selectionMode="Single" rowSelectionChange="selectedRow" rows="{/value}" visibleRowCount="13" 
+			class="sapUiSizeCompact" selectionBehavior="RowOnly" ariaLabelledBy="title">
+				<table:extension>
+					<OverflowToolbar>
+						<Title id="title" text="{i18n>MONITOR_TABLE_TITLE}" />
+						<ToolbarSpacer/>
+						<Button text="{i18n>REFRESH}" press="onRefresh"/>
+					</OverflowToolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column width="13rem">
+						<Label text="{i18n>MIGRATION_ID}" />
+						<table:template>
+							<Text text="{ID}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="11rem"  sortProperty="HRF_RULE_NAME"  filterProperty="HRF_RULE_NAME">
+						<Label text="{i18n>HRF_RULE_NAME}" />
+						<table:template>
+							<Text text="{HRF_RULE_NAME}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="18rem"  sortProperty="HRF_RULE_PACKAGE"  filterProperty="HRF_RULE_PACKAGE">
+						<Label text="{i18n>HRF_RULE_PACKAGE}" />
+						<table:template>
+							<Text text="{HRF_RULE_PACKAGE}" wrapping="true" />
+						</table:template>
+					</table:Column>
+					<table:Column width="9rem" sortProperty="CP_BR_RULE_NAME"  filterProperty="CP_BR_RULE_NAME">
+						<Label text="{i18n>CP_BR_RULE_NAME}" />
+						<table:template>
+							<Text text="{CP_BR_RULE_NAME}" wrapping="true" />
+						</table:template>
+					</table:Column>
+					<table:Column width="9rem" sortProperty="CP_BR_PROJECT_NAME"  filterProperty="CP_BR_PROJECT_NAME">
+						<Label text="{i18n>CP_BR_PROJECT_NAME}" />
+						<table:template>
+							<Text text="{CP_BR_PROJECT_NAME}" wrapping="true" />
+						</table:template>
+					</table:Column>
+					<table:Column width="11rem" sortProperty="CREATED_ON"  filterProperty="CREATED_ON">
+						<Label text="{i18n>CREATED_ON}" />
+						<table:template>
+							<Text text="{path: 'CREATED_ON', formatter: '.DateFormat'}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="5rem" hAlign="Center">
+						<Label text="{i18n>HRF_RULE_FETCH}" tooltip="{i18n>HRF_RULE_FETCH}" />
+						<table:template>
+							<core:Icon src="{path:'STATUS_STEP1', formatter:'.formatTextToIcon'}" color="{path:'STATUS_STEP1', formatter:'.iconColor'}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="5rem" hAlign="Center">
+						<Label text="{i18n>RULE_CONVERSION}" tooltip="{i18n>RULE_CONVERSION}" />
+						<table:template>
+							<core:Icon src="{path:'STATUS_STEP2', formatter:'.formatTextToIcon'}" color="{path:'STATUS_STEP2', formatter:'.iconColor'}" wrapping="false" />
+						</table:template>
+					</table:Column>
+					<table:Column width="5rem" hAlign="Center">
+						<Label text="{i18n>CP_BR_RULE_CREATION}" tooltip="{i18n>CP_BR_RULE_CREATION}" />
+						<table:template>
+							<core:Icon src="{path:'STATUS_STEP3', formatter:'.formatTextToIcon'}" color="{path:'STATUS_STEP3', formatter:'.iconColor'}" wrapping="false" />
+						
+						</table:template>
+					</table:Column>
+					<table:Column width="5rem" hAlign="Center">
+						<Label text="{i18n>CP_BR_RULE_SERVICE_CREATION}" tooltip="{i18n>CP_BR_RULE_SERVICE_CREATION}"/>
+						<table:template>
+							<core:Icon src="{path:'STATUS_STEP4', formatter:'.formatTextToIcon'}" color="{path:'STATUS_STEP4', formatter:'.iconColor'}" wrapping="false" />
+						
+						</table:template>
+					</table:Column>
+					<table:Column width="5rem" hAlign="Center">
+						<Label text="{i18n>CP_BR_RULESET_CREATION}" tooltip="{i18n>CP_BR_RULESET_CREATION}"/>
+						<table:template>
+							<core:Icon src="{path:'STATUS_STEP5', formatter:'.formatTextToIcon'}" color="{path:'STATUS_STEP5', formatter:'.iconColor'}" wrapping="false" />
+						
+						</table:template>
+					</table:Column>
+					<table:Column width="5rem" hAlign="Center">
+						<Label text="{i18n>CP_BR_RULE_ACTIVATION}" tooltip="{i18n>CP_BR_RULE_ACTIVATION}"/>
+						<table:template>
+							<core:Icon src="{path:'STATUS_STEP6', formatter:'.formatTextToIcon'}" color="{path:'STATUS_STEP6', formatter:'.iconColor'}" wrapping="false" />
+						
+						</table:template>
+					</table:Column>
+					<table:Column width="15rem">
+						<Label text="{i18n>MESSAGE}" />
+						<table:template>
+							<Text text="{ERROR_MSG}" wrapping="false" />
+						</table:template>
+					</table:Column>
+				</table:columns>
+				<!-- <footer> -->
+				<!-- <m:OverflowToolbar id="infobar"></m:OverflowToolbar> -->
+				<!-- </footer> -->
+			</table:Table>
+		</content>
+	</Page>
+</View>
