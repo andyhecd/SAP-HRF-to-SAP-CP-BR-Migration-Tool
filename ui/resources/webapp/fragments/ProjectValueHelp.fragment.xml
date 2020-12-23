@@ -1,0 +1,78 @@
+<core:FragmentDefinition
+   	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+<TableSelectDialog
+		class="sapUiSizeCompact"
+		noDataText="No Project Found"
+		title="Select Project"
+		search=".handleSearch"
+		confirm=".handleValueHelpClose"
+		cancel=".handleValueHelpClose"
+		contentHeight="50%"
+		contentWidth="60%"
+		items="{
+			path : 'mainModel>/ProjectList',
+			sorter : {
+				path : 'Name',
+				descending : false
+			}
+		}">
+		<ColumnListItem selected="{mainModel>selected}">
+			<cells>
+				<!-- <ObjectIdentifier title="{Name}" text="{ProductId}" /> -->
+				<Text text="{mainModel>Name}" />
+				<Text text="{mainModel>Id}" />
+				<Text text="{path:'mainModel>ChangedOn',formatter:'.DateFormat'}" />
+				<Text text="{mainModel>ChangedBy}" />
+				<!-- <Text text="{Width} x {Depth} x {Height} {DimUnit}" />
+				<ObjectNumber
+					number="{WeightMeasure}"
+					unit="{WeightUnit}"
+					state="{
+						path: 'WeightMeasure',
+						formatter: 'sap.m.sample.TableSelectDialog.Formatter.weightState'
+					}" />
+				<ObjectNumber
+					number="{
+						parts:[{path:'Price'},{path:'CurrencyCode'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}"
+					unit="{CurrencyCode}" /> -->
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<!-- <header> -->
+					<Text text="{i18n>PROJECT_NAME}" />
+				<!-- </header> -->
+			</Column>
+			 <Column minScreenWidth="Tablet" demandPopin="true">
+				<!-- <header> -->
+					<Text text="{i18n>PROJECT_ID}" />
+				<!-- </header> -->
+			</Column>
+			<!-- <Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End"> -->
+				<!-- <header> -->
+					<!-- <Text text="{i18n>DESCRIPTION}" /> -->
+				<!-- </header> -->
+			<!-- </Column> -->
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				>
+				<!-- <header> -->
+					<Text text="{i18n>CREATED_ON}" />
+				<!-- </header> -->
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" >
+				<!-- <header> -->
+					<Text text="{i18n>CREATED_bY}" />
+				<!-- </header> -->
+			</Column> 
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

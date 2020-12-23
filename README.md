@@ -13,4 +13,9 @@
     ```sh
     xs deploy trp_xsa_migr_tool.mtar
     ```
-4. Refer to SAP Note: ***xxxxxx*** on the usage of the tool
+4. Refer to SAP Note: ***3007851*** on the usage of the tool
+
+## Limitations
+
+1. The tool supports migration of SAP HRF rules to SAP Cloud Platform Business Rules (Rel.Lang - 1.0) only
+2. The tool migrates the rules as-is. In case of any migration issues, fix the issues in SAP Cloud Platform Business Rules manually

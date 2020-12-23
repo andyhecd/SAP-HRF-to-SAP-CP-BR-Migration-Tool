@@ -1,0 +1,20 @@
+{
+    "xsappname": "trp-migr-tool-dev",
+    "tenant-mode": "dedicated",
+    "description": "XS Security Definitions",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.Executor",
+            "description": "Executor Scope"
+        }
+    ],
+    "role-templates": [
+        {
+            "name": "trp4_migr_tool_executor",
+            "description": "Executor Role template",
+            "scope-references": [
+                "$XSAPPNAME.Executor"
+            ]
+        }
+    ]
+}

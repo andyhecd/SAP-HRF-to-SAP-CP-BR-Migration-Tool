@@ -1,0 +1,56 @@
+{
+  "name": "trp-migr-tool-srv",
+  "description": "Service Backend of Tool to convert HRF Rules to SAP CP Business Rules",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "^4.4.6",
+    "express": "^4.17.1",
+    "@sap/hana-client": "^2.6.61",
+    "got": "11.7.0",
+    "http-status-codes": "1.4.0",
+    "passport": "0.4.1",
+    "compression": "1.7.4",
+    "@sap/hdbext": "7.0.0",
+    "@sap/xsenv": "3.0.0",
+    "@sap/xssec": "3.0.9"
+  },
+  "engines": {
+    "node": "^10 || ^12"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "watch": "npx nodemon server.js"
+  },
+  "nodemonConfig": {
+    "verbose": true,
+    "watch": [
+      "app",
+      "db",
+      "srv"
+    ],
+    "ext": "js,cds,csn,env,csv,json,edmx,properties",
+    "exec": "node server.js",
+    "ignore": [
+      "*.test.ts"
+    ],
+    "delay": "3",
+    "execMap": {
+      "ts": "ts-node"
+    }
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana",
+        "vcap": {
+          "tag": "trp4_migr_tool_db"
+        },
+        "model": "gen/csn.json"
+      }
+    }
+  }
+}
