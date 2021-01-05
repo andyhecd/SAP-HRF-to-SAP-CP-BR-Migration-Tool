@@ -3,17 +3,18 @@
 
 #### Steps:
 
-1. Download the file ***trp_xsa_migr_tool.mtar*** from the mta_archives folder
-2. Login to ***xs*** command line
+1. Download the source code from this repository into your new WebIde MTA project.
+2. Right Click mta.yaml and choose ***Build MTA*** Option. Once the build is complete, a folder named mta_archives is added to the project which contains the relevant MTA archive (MTAR file). 
+3. Login to ***xs*** command line
     ```sh
     xs login -a https://<host>:<port>/ -u <XSA_USER> -p '<Password>' -s <xsa_space> --skip-ssl-validation
     ```
     ***Note:*** Setup the xs command line by following this link: https://developers.sap.com/tutorials/hxe-ua-install-xs-xli-client.html
-3. Execute the below command from the same folder where the mtar file is downloaded
+4. Execute the below command from the same folder where the mtar file is downloaded
     ```sh
     xs deploy trp_xsa_migr_tool.mtar
     ```
-4. Refer to SAP Note: ***3007851*** on the usage of the tool
+5. Refer to SAP Note: ***3007851*** on the usage of the tool
 
 ## Limitations
 
