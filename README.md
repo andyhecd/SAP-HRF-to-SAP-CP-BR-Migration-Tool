@@ -20,3 +20,9 @@
 1. This tool is ***NOT TO BE USED***  in ***Production System***
 2. The tool supports migration of SAP HRF rules to SAP Cloud Platform Business Rules (Rel.Lang - 1.0) only
 3. The tool migrates the rules as-is. In case of any migration issues, fix the issues in SAP Cloud Platform Business Rules manually
+
+## Known Issues
+None
+
+## How to obtain support
+This project is provided "as-is": there is no guarantee that raised issues will be answered or addressed in future releases.
