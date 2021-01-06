@@ -25,18 +25,18 @@ To build and deploy this project, perform the following steps:
 
 10. Right click on the MTAR file. Select Export.
 
-Once the MTAR file is exported, deploy this application to the space where you are deploying the SAP Transportation Resource Planning 4.0 application.
+11. Once the MTAR file is exported, deploy this application to the space where you are deploying the SAP Transportation Resource Planning 4.0 application.
 
-11. Login to ***xs*** command line
+12. Login to ***xs*** command line
     ```sh
     xs login -a https://<host>:<port>/ -u <XSA_USER> -p '<Password>' -s <xsa_space> --skip-ssl-validation
     ```
     ***Note:*** Setup the xs command line by following this link: https://developers.sap.com/tutorials/hxe-ua-install-xs-xli-client.html
-12. Execute the below command from the same folder where the mtar file is downloaded
+13. Execute the below command from the same folder where the mtar file is downloaded
     ```sh
     xs deploy trp_xsa_migr_tool.mtar
     ```
-13. Refer to SAP Note: ***3007851*** on the usage of the tool
+14. Refer to SAP Note: ***3007851*** on the usage of the tool
 
 ## Limitations
 
