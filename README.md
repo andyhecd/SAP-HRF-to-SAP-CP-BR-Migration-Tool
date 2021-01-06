@@ -3,18 +3,40 @@
 
 #### Steps:
 
-1. Download the source code from this repository into your new WebIde MTA project.
-2. Right Click mta.yaml and choose ***Build MTA*** Option. Once the build is complete, a folder named mta_archives is added to the project which contains the relevant MTA archive (MTAR file). 
-3. Login to ***xs*** command line
+To build and deploy this project, perform the following steps:
+
+1. Open the SAP-TRP/SAP-HRF-to-SAP-CP-BR-Migration-Tool and clone the project in your local folder.
+
+2. Navigate inside SAP-HRF-to-SAP-CP-BR-Migration-Tool folder, select all files and zip it.
+
+3. In the SAP Web IDE, right click on Workspace and navigate to Import -> File or Project.
+
+4. Browse and provide the zip file of the project you have created in step 2.
+
+5.Select the Extract Archive check box and choose OK.
+
+6.Right click on the project and navigate to Project -> Project Settings.
+
+7.Under Project -> Space, select your development space and choose Save. For more information on organization and space, see the SAP HANA guide.
+
+8.Right click on the main project. Choose Build -> Build.
+
+9. To view the MTAR file generated, expand the folder mta_archives, which is under your current project folder.
+
+10. Right click on the MTAR file. Select Export.
+
+Once the MTAR file is exported, deploy this application to the space where you are deploying the SAP Transportation Resource Planning 4.0 application.
+
+11. Login to ***xs*** command line
     ```sh
     xs login -a https://<host>:<port>/ -u <XSA_USER> -p '<Password>' -s <xsa_space> --skip-ssl-validation
     ```
     ***Note:*** Setup the xs command line by following this link: https://developers.sap.com/tutorials/hxe-ua-install-xs-xli-client.html
-4. Execute the below command from the same folder where the mtar file is downloaded
+12. Execute the below command from the same folder where the mtar file is downloaded
     ```sh
     xs deploy trp_xsa_migr_tool.mtar
     ```
-5. Refer to SAP Note: ***3007851*** on the usage of the tool
+13. Refer to SAP Note: ***3007851*** on the usage of the tool
 
 ## Limitations
 
