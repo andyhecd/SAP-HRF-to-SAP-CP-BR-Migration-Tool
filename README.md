@@ -9,17 +9,17 @@ To build and deploy this project, perform the following steps:
 
 2. Navigate inside SAP-HRF-to-SAP-CP-BR-Migration-Tool folder, select all files and zip it.
 
-3. In the SAP Web IDE, right click on Workspace and navigate to Import -> File or Project.
+3. In the SAP Web IDE, right click on Workspace and navigate to ```Import -> File or Project```.
 
 4. Browse and provide the zip file of the project you have created in step 2.
 
-5.Select the Extract Archive check box and choose OK.
+5. Select the Extract Archive check box and choose OK.
 
-6.Right click on the project and navigate to Project -> Project Settings.
+6. Right click on the project and navigate to ``` Project -> Project Settings```.
 
-7.Under Project -> Space, select your development space and choose Save. For more information on organization and space, see the SAP HANA guide.
+7. Under ```Project -> Space```, select your development space and choose Save. For more information on organization and space, see the SAP HANA guide.
 
-8.Right click on the main project. Choose Build -> Build.
+8. Right click on the main project. Choose ```Build -> Build```
 
 9. To view the MTAR file generated, expand the folder mta_archives, which is under your current project folder.
 
