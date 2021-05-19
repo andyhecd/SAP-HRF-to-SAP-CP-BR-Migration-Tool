@@ -57,13 +57,10 @@ resources:
     parameters:
       service-tags:
         - trp4_migr_tool_db
-      service-name: TRP_DB_MIGR_TOOL_DEV
-      config:
-        schema: SAP_TRP_DB_MIGR_TOOL_DEV 
   - name: trp4_migr_tool_uaa
     type: com.sap.xs.uaa
     parameters:
       service-name: trp4_migr_tool_uaa
-      path: ./xs-security.json
+      path: xs-security.json
       service-plan: space
       service: xsuaa
