@@ -9,8 +9,6 @@ gen/
 node_modules/
 target/
 
-mta_archives/
-
 # Web IDE, App Studio
 .che/
 .gen/
