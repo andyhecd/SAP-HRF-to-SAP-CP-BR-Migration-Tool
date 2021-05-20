@@ -61,6 +61,6 @@ resources:
     type: com.sap.xs.uaa
     parameters:
       service-name: trp4_migr_tool_uaa
-      path: ./xs-security.json
+      path: xs-security.json
       service-plan: space
       service: xsuaa
