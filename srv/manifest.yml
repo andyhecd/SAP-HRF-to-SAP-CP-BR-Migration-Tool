@@ -4,6 +4,6 @@ applications:
     instances: 1
     services:
       - trp4_migr_tool_uaa
-      - TRP_DB_MIGR_TOOL_DEV
+      - trp-migr-tool-db-db-hdi-container
       - SAP_TRP_HRF_MIGR_PARAMS
     memory: 256M

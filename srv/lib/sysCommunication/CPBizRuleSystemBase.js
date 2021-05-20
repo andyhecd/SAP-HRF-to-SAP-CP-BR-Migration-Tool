@@ -38,7 +38,7 @@ class CPBizRuleSystemBase {
         if (project.Annotations && project.Annotations instanceof Array) {
           isNotExpLang1 = project.Annotations.some((annotation) => {
             //  Expression language 1.0 does not have the this annotation.
-            return annotation.Key === "com.sap.rules.expression.language";
+            return annotation.Key === "com.sap.rules.expression.language" && annotation.Value !== "1.0";
           });
         }
         if (!isNotExpLang1) {
