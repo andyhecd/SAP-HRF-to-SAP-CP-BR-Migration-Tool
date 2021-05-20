@@ -8,7 +8,6 @@ default-*.json
 gen/
 node_modules/
 target/
-
 mta_archives/
 
 # Web IDE, App Studio
