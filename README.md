@@ -6,40 +6,31 @@
 
 To build and deploy this project, perform the following steps:
 
-1. Open the SAP-TRP/SAP-HRF-to-SAP-CP-BR-Migration-Tool and clone the project in your local folder.
+1. Login SAP Web IDE, right click on Workspace and navigate to ```Git -> Clone Repository```.
 
-2. Navigate inside SAP-HRF-to-SAP-CP-BR-Migration-Tool folder, select all files and zip it.
+2. In the pop-up window, provide git repository URL: ```https://github.com/SAP-TRP/SAP-HRF-to-SAP-CP-BR-Migration-Tool.git```.
 
-3. In the SAP Web IDE, right click on Workspace and navigate to ```Import -> File or Project```.
+3. Right click on the imported project **SAP-HRF-to-SAP-CP-BR-Migration-Tool** and navigate to ``` Build -> Build```.
 
-4. Browse and provide the zip file of the project you have created in step 2.
-
-5. Select the Extract Archive check box and choose OK.
-
-6. Right click on the project and navigate to ``` Project -> Project Settings```.
-
-7. Under ```Project -> Space```, select your development space and choose Save. For more information on organization and space, see the SAP HANA guide.
-
-8. Right click on the main project. Choose ```Build -> Build```
-
-9. To view the MTAR file generated (refer the build action logs). Under the workspace root expand the folder `mta_archives`, here we should have a newly generated MTAR file. Sample successful Build log as below:
-
-    > **IMPORTANT**: Please do not directly deploy [`trp_xsa_migr_tool.mtar`](https://github.com/SAP-TRP/SAP-HRF-to-SAP-CP-BR-Migration-Tool/blob/main/mta_archives/trp_xsa_migr_tool.mtar)
+4. To view the MTAR file generated (**refer the build action logs**). Under the project, expand the folder `mta_archives`, here we should have a newly generated MTAR file. Sample successful Build log as below:
 
     ```swift
-    17:39:24 (Builder) Build of "/SAP-HRF-to-SAP-CP-BR-Migration-Tool-main_0.0.1" started.
-    17:39:27 (DIBuild) [INFO] Target platform is XSA[INFO] Reading mta.yaml[INFO] Processing mta.yaml[INFO] Creating MTA archive[INFO] Saving MTA archive SAP-HRF-to-SAP-CP-BR-Migration-Tool-main_0.0.1_0.0.1.mtar[INFO] Done
-    17:39:27 (DIBuild) ********** End of /SAP-HRF-to-SAP-CP-BR-Migration-Tool-main_0.0.1 Build Log **********
-    17:39:27 (DIBuild) Build results link: https://URL:53075/che/builder/workspaceudowhn2owfxwtylt/download-all/060624d4-3984-4336-855e-d040d9c32e79?arch=zip
-    17:39:27 (Builder) The .mtar file build artifact was generated under /mta_archives/SAP-HRF-to-SAP-CP-BR-Migration-Tool-main_0.0.1.
-    17:39:31 (Builder) Build of /SAP-HRF-to-SAP-CP-BR-Migration-Tool-main_0.0.1 completed successfully.
+    4:14:50 PM (DIBuild) [INFO] Creating MTA archive
+    4:16:38 PM (DIBuild) [INFO] Saving MTA archive trp-migr-tool-dev_1.0.0.mtar
+    4:16:42 PM (DIBuild) [INFO] Done
+    4:16:42 PM (DIBuild) ********** End of /SAP-HRF-to-SAP-CP-BR-Migration-Tool Build Log **********
+    4:16:42 PM (DIBuild) Build results link: https://URL/che/builder/workspacel8bad924ethwsj3t/download-all/014e961e-161d-4db2-a466-53e2f73b6ad5?arch=zip
+    4:16:42 PM (Builder) The .mtar file build artifact was generated under SAP-HRF-to-SAP-CP-BR-Migration-Tool/mta_archives.
+    4:16:59 PM (Builder) Build of /SAP-HRF-to-SAP-CP-BR-Migration-Tool completed successfully.
     ```
     
-10. Right click on the MTAR file. Select Export.
+5. Right click on the MTAR file. Select Export.
 
-11. Once the MTAR file is exported, deploy this application to the space where you are deploying the SAP Transportation Resource Planning 4.0 application.
+6. Once the MTAR file is exported, deploy this application to the space where you are deploying the SAP Transportation Resource Planning 4.0 application.
 
-12. Login to ***xs*** command line
+7. Before deployment, configure madatory User Provided Service for the migration tool, which is named as **SAP_TRP_HRF_MIGR_PARAMS**. Refer to SAP Note: ***3007851*** for details.
+
+8. Login to ***xs*** command line
 
     ```sh
     xs login -a https://<host>:<port>/ -u <XSA_USER> -p '<Password>' -s <xsa_space> --skip-ssl-validation
@@ -47,13 +38,13 @@ To build and deploy this project, perform the following steps:
     
     > ***Note:*** Setup the xs command line by following this link: https://developers.sap.com/tutorials/hxe-ua-install-xs-xli-client.html
 
-13. Execute the below command from the same folder where the mtar file is downloaded
+9. Execute the below command from the same folder where the mtar file is downloaded
     
     ```sh
-    xs deploy trp_xsa_migr_tool.mtar
+    xs deploy trp-migr-tool-dev_1.0.0.mtar
     ```
     
-14. Refer to SAP Note: ***3007851*** on the usage of the tool
+10. Refer to SAP Note: ***3007851*** on the usage of the tool
 
 ___
 
